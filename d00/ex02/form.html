@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+	<title>boring form</title>
+	<style>
+		body {
+			font-family: Helvetica;
+		}
+		h1 {
+			text-align: center;
+		}
+		th, td {
+			text-align: left;
+		}
+		.center {
+			margin-left: auto;
+			margin-right: auto;
+		}
+	</style>
+</head>
+<body>
+	<h1>Please fill this boring form</h1>
+	<form action="/popup.js" method="post">
+	<table class="center">
+		<tr>
+			<label>
+				<th>Firstname:</th>
+				<td><input type="text" id="firstname" name="firstname"></td>
+			</label>
+		</tr>
+		<tr>
+			<label>
+				<th>Name:</th>
+				<td><input  type="text" id="name" name="name"></td>
+			</label>
+		</tr>
+		<tr>
+			<label>
+				<th>Phone:</th>
+				<td><input  type="tel" id="phone" name="phone"></td>
+			</label>
+		</tr>
+		<tr>
+			<label>
+				<th>Age:</th>
+				<td><input type="number" id="age" name="age"></td>
+			</label>
+		</tr>
+		<tr>
+			<label>
+				<th>Email:</th>
+				<td><input type="email" id="email" name="email"></td>
+			</label>
+		</tr>
+		<tr>
+			<label>
+				<th>Student at 42? </th>
+				<td><input type="checkbox" id="student" name="student" ></td>
+			</label>
+		</tr>
+		<tr>
+			<th rowspan="3">Gender:</th>
+			<td>
+				<input type="radio" id="gender_male" name="gender">
+				<label for="gender_male">Male</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="radio" id="gender_female" name="gender">
+				<label for="gender_female">Female</label>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="radio" id="gender_other" name="gender">
+				<label for="gender_other">Other</label>
+			</td>
+		</tr>
+		<tr>
+			<th><input type="submit" id="submit" name="submit" onclick="displayFormContent()"></th>
+		</tr>
+	</table>
+	</form>
+</body>
