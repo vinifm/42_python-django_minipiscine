@@ -22,13 +22,16 @@ def var_to_dir():
 		('Burton' , '1939')
 	]
 	dic = {}
-	for couple in d:
-		dic[couple[1]] = couple[0]
+	for singer, year in d:
+		dic.setdefault(year, []).append(singer)
 	return dic
 
 def print_dir(dic):
 	for key, val in dic.items():
-		print(f"{key} : {val}")
+		print(f"{key} : ", end="")
+		for singer in val:
+			print(f"{singer} ", end="")
+		print()
 
 if __name__ == '__main__':
 	print_dir(var_to_dir())
