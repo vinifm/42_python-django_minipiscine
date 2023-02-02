@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>generic cv</title>
+	<style>
+		h1, div {
+			margin-top: 5%;
+			text-align: center;
+			font-family: Helvetica, sans-serif;
+		}
+	</style>
+</head>
+<body>
+	<div class="center">
+	<img src="https://i.pinimg.com/originals/f7/29/73/f7297397360cece2789e7827bebc3e22.png" alt="Hate mondays? Try unemployment">
+	<h1>{name}'s very unimpressive CV</h1>
+	<p><b>Name:</b> {name}</p>
+	<p><b>Surname:</b> {surname}</p>
+	<p><b>Age:</b> {age}</p>
+	<p><b>Profession:</b> {profession}</p>
+	</div>
+</body>
+</html>

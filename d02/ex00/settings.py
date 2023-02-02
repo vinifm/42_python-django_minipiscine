@@ -1,0 +1,5 @@
+title = "Awesome curriculum vitae"
+name = "Vini"
+surname = "Ferreira"
+age = "22"
+profession = "unemployed"
