@@ -74,13 +74,15 @@ def is_state(state):
 
 def display_cities_and_states(str):
 	raw_list = str.split(",")
+	new_list = []
 
 	# remove whitespaces, turns everything lowercase and capitalize first letters
 	for index in range(len(raw_list)):
-		raw_list[index] = raw_list[index].strip().casefold().title()
-	raw_list.remove('')
+		if raw_list[index].isspace() or raw_list[index] == '':
+			continue
+		new_list.append(raw_list[index].strip().title())
 
-	for city_state in raw_list:
+	for city_state in new_list:
 		if is_capital(city_state):
 			state = display_state(city_state)
 			print(f"{city_state} is the capital of {state}")
