@@ -1,6 +1,9 @@
-import sys, os, re
+import sys, os
 
 def create_dictionary():
+	'''
+	Returns a dictionary from the settings.py file
+	'''
 	with open("settings.py", "r") as settings_file:
 		dic_list = []
 		for line in settings_file:
