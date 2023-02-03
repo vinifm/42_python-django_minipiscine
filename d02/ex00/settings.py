@@ -1,5 +1,5 @@
 title = "Awesome curriculum vitae"
-name = "Vini"
-surname = "Ferreira"
+name = "vini"
+surname = "ferreira"
 age = "22"
 profession = "unemployed"

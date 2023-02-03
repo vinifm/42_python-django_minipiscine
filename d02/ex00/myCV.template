@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>generic cv</title>
+	<title>{title}</title>
 	<style>
 		h1, div {
 			margin-top: 5%;
