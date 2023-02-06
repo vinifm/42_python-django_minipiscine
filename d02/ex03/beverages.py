@@ -1,9 +1,10 @@
 class HotBeverage:
-	price = 0.3043894389
+	price = 0.30
 	name = "hot beverage"
+	desc = "Just some hot water in a cup."
 
 	def description(self):
-		return "Just some hot water in a cup."
+		return self.desc
 
 	def __str__(self):
 		desc = "name : %s\n" % self.name \
@@ -14,32 +15,24 @@ class HotBeverage:
 class Coffee(HotBeverage):
 	name = "coffee"
 	price = 0.40
-
-	def description(self):
-		return "A coffee, to stay awake."
+	desc = "A coffee, to stay awake."
 
 class Tea(HotBeverage):
 	name = "tea"
 	price = 0.30
-
-	def description(self):
-		return "Just some hot water in a cup."
+	desc = "Just some hot water in a cup."
 
 class Chocolate(HotBeverage):
 	name = "chocolate"
 	price = 0.50
-
-	def description(self):
-		return "Chocolate, sweet chocolate..."
+	desc = "Chocolate, sweet chocolate..."
 
 class Cappuccino(HotBeverage):
 	name = "cappuccino"
 	price = 0.45
+	desc = "Un po' di Italia nella sua tazza!"
 
-	def description(self):
-		return "Un po' di Italia nella sua tazza!"
-
-def test():
+def test_beverages():
 	beverage = HotBeverage()
 	coffee = Coffee()
 	tea = Tea()
@@ -53,4 +46,4 @@ def test():
 	print(f"\n{cappuccino}\n")
 
 if __name__ == '__main__':
-	test()
+	test_beverages()

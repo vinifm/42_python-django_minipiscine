@@ -36,6 +36,5 @@ def test():
 	except:
 		print("\nIntern was fired.")
 
-
 if __name__ == '__main__':
 	test()
