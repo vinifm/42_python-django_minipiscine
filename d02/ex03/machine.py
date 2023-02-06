@@ -4,7 +4,7 @@ from beverages import *
 class CoffeeMachine:
 
 	def __init__(self):
-		pass
+		self.counter = 0
 
 	class EmptyCup(HotBeverage):
 		name = "empty cup"
@@ -16,17 +16,25 @@ class CoffeeMachine:
 			super().__init__("This coffee machine has to be repaired.")
 
 	def repair(self):
-		pass
+		self.counter = 0
 
 	def serve(self, beverage):
-		'''
-		Returns
-		'''
+		if self.counter == 10:
+			raise self.BrokenMachineException()
+		self.counter += 1
 		return random.choice([beverage, self.EmptyCup()])
 
 def test_machine():
 	machine = CoffeeMachine()
-	print(machine.serve(Tea()))
+	drinks = [Coffee(), Tea(), Chocolate(), Cappuccino()]
+	for i in range(12):
+		print("order number:", i)
+		# print(machine.serve(random.choice(drinks)))
+		try:
+			print(machine.serve(random.choice(drinks)))
+		except machine.BrokenMachineException:
+			machine.repair()
+		print()
 
 if __name__ == '__main__':
 	test_machine()
