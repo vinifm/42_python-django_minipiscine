@@ -25,14 +25,14 @@ class Elem:
 		"""
 		A builder taking in parameter the element's name, HTML attributes and type (simple or double tags).
 		"""
-		[...]
+		self.tag = tag
+		self.attr = attr
+		self.content = content
+		self.tag_type = tag_type
 
 	def __str__(self):
 		"""
-		The __str__() method will permit us to make a plain HTML representation
-		of our elements.
-		Make sure it renders everything (tag, attributes, embedded
-		elements...).
+		The __str__() method will permit us to make a plain HTML representation of our elements. Make sure it renders everything (tag, attributes, embedded elements...).
 		"""
 		if self.tag_type == 'double':
 			[...]
