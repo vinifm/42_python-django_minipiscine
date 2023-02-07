@@ -29,15 +29,30 @@ class Elem:
 		"""
 		self.tag = tag
 		self.attr = attr
-		self.content = content
 		self.tag_type = tag_type
+		self.content = []
+		if content:
+			self.add_content(content)
+		# if content == '':
+		# 	raise Elem.ValidationError
+		# elif content == None:
+		# 	self.content = ''
+		# elif isinstance(content, Elem):
+		# 	self.content = [content]
+		# else:
+		# 	self.content = content
 
 	def __str__(self):
 		"""
 		The __str__() method will permit us to make a plain HTML representation of our elements. Make sure it renders everything (tag, attributes, embedded elements...).
 		"""
+		result = ''
 		if self.tag_type == 'double':
+			result = f'<{self.tag}>'
 			[...]
+			# put content into result
+			result += self.__make_content()
+			result += f'</{self.tag}>'
 		elif self.tag_type == 'simple':
 			[...]
 		return result
@@ -55,13 +70,16 @@ class Elem:
 		"""
 		Here is a method to render the content, including embedded elements.
 		"""
-
 		if len(self.content) == 0:
 			return ''
 		result = '\n'
 		for elem in self.content:
-			result += [...]
+			for line in str(elem).split('\n'):
+				result += '  ' + line + '\n'
 		return result
+
+	class ValidationError(Exception):
+		pass
 
 	def add_content(self, content):
 		if not Elem.check_type(content):
