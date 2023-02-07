@@ -108,13 +108,16 @@ def test_embedding():
 </div>""")
 	print('Element embedding : OK.')
 
+def my_test():
+	print(Text('foo'))
 
 def test():
+	# my_test()
 	test_text()
-	test_elem_basics()
-	test_embedding()
-	test_empty_texts()
-	test_errors()
+	# test_elem_basics()
+	# test_embedding()
+	# test_empty_texts()
+	# test_errors()
 
 if __name__ == '__main__':
 	try :

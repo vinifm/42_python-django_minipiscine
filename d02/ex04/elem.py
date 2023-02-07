@@ -9,10 +9,12 @@ class Text(str):
 	"""
 
 	def __str__(self):
-		"""
-		Do you really need a comment to understand this method?..
-		"""
-		return super().__str__().replace('\n', '\n<br />\n')
+		text = super().__str__().replace('<', '&lt;')
+		text = text.replace('>', '&gt;')
+		text = text.replace('>', '&gt;')
+		text = text.replace('"', '&quot;')
+		text = text.replace('\n', '\n<br />\n')
+		return text
 
 
 class Elem:
