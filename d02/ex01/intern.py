@@ -27,14 +27,11 @@ def test():
 	print("- Mark, make me coffee!")
 	print(mark.make_coffee())
 
-	# print("- Intern, work!")
-	# print(nobody.work())
-
 	try:
 		print("\n- Intern, work!")
 		print(nobody.work())
-	except:
-		print("\nIntern was fired.")
+	except Exception as error:
+		print(error)
 
 if __name__ == '__main__':
 	test()

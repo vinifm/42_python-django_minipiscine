@@ -91,7 +91,7 @@ def test_errors():
 
     try:
         elem = Elem(content='')
-        # raise(Exception("incorrect behaviour."))
+        raise(Exception("incorrect behaviour."))
     except Exception as e:
         assert isinstance(e, Elem.ValidationError)
     print('Error cases : OK.')
@@ -109,6 +109,7 @@ def test_embedding():
     print('Element embedding : OK.')
 
 def test():
+    print(Elem(attr={"src": "hey"}, content=("baby girl"), tag_type="double"))
     test_text()
     test_elem_basics()
     test_embedding()

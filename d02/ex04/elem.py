@@ -21,8 +21,6 @@ class Elem:
 	"""
 	Elem will permit us to represent our HTML elements.
 	"""
-	[...]
-
 	def __init__(self, tag='div', attr={}, content=None, tag_type='double'):
 		"""
 		A builder taking in parameter the element's name, HTML attributes and type (simple or double tags).
@@ -30,17 +28,11 @@ class Elem:
 		self.tag = tag
 		self.attr = attr
 		self.tag_type = tag_type
+		if content != None and not Elem.check_type(content):
+			raise Elem.ValidationError
 		self.content = []
 		if content:
 			self.add_content(content)
-		# if content == '':
-		# 	raise Elem.ValidationError
-		# elif content == None:
-		# 	self.content = ''
-		# elif isinstance(content, Elem):
-		# 	self.content = [content]
-		# else:
-		# 	self.content = content
 
 	def __str__(self):
 		"""
@@ -48,13 +40,11 @@ class Elem:
 		"""
 		result = ''
 		if self.tag_type == 'double':
-			result = f'<{self.tag}>'
-			[...]
-			# put content into result
+			result = f'<{self.tag}{self.__make_attr()}>'
 			result += self.__make_content()
 			result += f'</{self.tag}>'
 		elif self.tag_type == 'simple':
-			[...]
+			result = f'<{self.tag}{self.__make_attr()} />'
 		return result
 
 	def __make_attr(self):
@@ -79,7 +69,8 @@ class Elem:
 		return result
 
 	class ValidationError(Exception):
-		pass
+		def __init__(self):
+			super().__init__("Invalid type")
 
 	def add_content(self, content):
 		if not Elem.check_type(content):
@@ -92,14 +83,21 @@ class Elem:
 	@staticmethod
 	def check_type(content):
 		"""
-		Is this object a HTML-compatible Text instance or a Elem, or even a
-		list of both?
+		Is this object a HTML-compatible Text instance or a Elem, or even a list of both?
 		"""
 		return (isinstance(content, Elem) or type(content) == Text or
 				(type(content) == list and all([type(elem) == Text or
 												isinstance(elem, Elem)
 												for elem in content])))
 
+def	test():
+	print(Elem("html", content=[Elem("head",
+			content=Elem("title",
+				content=Text("Hello ground!"))),
+		Elem("body",
+			content=[Elem("h1",
+				content=Text("Oh no, not again!")),
+			Elem("img", {"src": "http://i.imgur.com/pfp3T.jpg"}, tag_type="simple")])]))
 
 if __name__ == '__main__':
-	[...]
+	test()

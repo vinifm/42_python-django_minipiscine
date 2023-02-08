@@ -19,8 +19,6 @@ class Coffee(HotBeverage):
 
 class Tea(HotBeverage):
 	name = "tea"
-	price = 0.30
-	desc = "Just some hot water in a cup."
 
 class Chocolate(HotBeverage):
 	name = "chocolate"
