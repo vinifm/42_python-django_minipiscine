@@ -21,16 +21,21 @@ def render_template(file_name, dic):
 		with open(os.path.splitext(file_name)[0] + ".html", "w") as new_file:
 			new_file.write(content)
 
-if __name__ == '__main__':
+def	check_arg_num():
 	if (len(sys.argv) != 2):
-		print("error: wrong number of arguments", file = sys.stderr)
-		exit(1)
-	file_name = sys.argv[1]
+		raise Exception("Wrong number of arguments")
+
+def	check_file_extension(file_name):
 	if (not file_name.endswith(".template")):
-		print("error: bad file extension", file = sys.stderr)
-		exit(1)
-	elif not os.path.isfile(file_name):
-		print("error: file not found", file = sys.stderr)
-		exit(1)
-	settings_dic = create_dictionary()
-	render_template(file_name, settings_dic)
+		raise Exception("Bad file extension")
+
+def	check_file_path(file_name):
+	if not os.path.isfile(file_name):
+		raise Exception("file not found")
+
+if __name__ == '__main__':
+	check_arg_num()
+	file_name = sys.argv[1]
+	check_file_extension(file_name)
+	check_file_path(file_name)
+	render_template(file_name, create_dictionary())

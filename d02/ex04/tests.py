@@ -109,7 +109,6 @@ def test_embedding():
     print('Element embedding : OK.')
 
 def test():
-    print(Elem(attr={"src": "hey"}, content=("baby girl"), tag_type="double"))
     test_text()
     test_elem_basics()
     test_embedding()
